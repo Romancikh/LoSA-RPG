@@ -1,3 +1,12 @@
+from os import system
+from time import sleep
+from random import choice
+
+
+def clear():
+    system("cls")
+
+
 class Entity:
     def __init__(self, name, hp, dmg, race="Monster"):
         self.race = race
@@ -46,6 +55,15 @@ def fight(h, m):
         print("Got money: %s" % (m.money))
     else:
         print("Game Over!")
+
+
+def rest(h):
+    while h.hp != h.hp_max:
+        print("HP (%s/%s)" % (h.hp, h.hp_max))
+        print("Time remains %ss"%((h.hp_max - h.hp)*0.5))
+        h.hp += 1
+        sleep(0.5)
+        clear()
 
 
 monster = [

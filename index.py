@@ -1,14 +1,8 @@
 from fighting import *
-from random import choice
-from time import sleep
-from os import system
-
-
-def clear():
-    system("cls")
 
 
 clear()
+
 while True:
     print("-"*35)
     print("Choose a hero")
@@ -58,7 +52,9 @@ while True:
             input()
         if n == 2:
             clear()
-            pass
+            rest(hero)
+            print("Full HP!")
+            input()
         if n == 3:
             clear()
             pass
