@@ -36,22 +36,15 @@ while True:
 # Story
 
 while True:
-    clear()
-    print("-"*35)
-    print(Fore.GREEN + "Choose an action" + Fore.RESET)
-    print("1. STATE")
-    print("2. REST")
-    print("3. TRADE")
-    print("4. ADVENTURE")
-    print("0. EXIT")
-    print("-"*35)
+    menu()
 
     n = input()
     while type(n) != int:
         try:
             n = int(n)
         except:
-            print(Fore.RED + "Enter number!" + Fore.RESET)
+            menu()
+            print(Fore.RED + "\nEnter number!" + Fore.RESET)
             n = input()
             clear()
     if n in range(5):
@@ -71,6 +64,7 @@ while True:
             input()
         if n == 3:
             clear()
+            doctor(hero, 10, 10)
             pass
         if n == 4:
             clear()

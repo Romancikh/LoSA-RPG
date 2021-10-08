@@ -45,11 +45,12 @@ def fight(h, m):
     print("-"*30)
     while h.hp > 0 and m.hp > 0:
         for i in range(len(character)):
+            print("%s got damage %s" %
+                  (repr(character[1-i]), character[i].dmg))
             character[1-i].hp -= character[i].dmg
             if character[1-i].hp < 0:
                 character[1-i].hp = 0
-            print("%s got damage %s" %
-                  (repr(character[1-i]), character[i].dmg))
+
         print()
     if h.hp > 0:
         print("Win!")
@@ -66,6 +67,38 @@ def rest(h):
         h.hp += 1
         sleep(0.5)
         clear()
+
+
+def doctor(h, payment, recoverable_value):
+    if h.hp == h.hp_max:
+        input(Fore.GREEN + "HP is Full!" + Fore.RESET)
+    else:
+        if h.money >= 10:
+            confirm = input("Heal %s HP for %s coins?\n" %
+                            (recoverable_value, payment))
+            if confirm.lower() in ["yes", "yep", "y", ""]:
+                h.hp += 10
+                if h.hp > h.hp_max:
+                    h.hp = h.hp_max
+                h.money -= 10
+                input(Fore.GREEN + "%s HP restored" %
+                      (recoverable_value) + Fore.RESET)
+        else:
+            print(Fore.RED + "Not enough money!" + Fore.RESET)
+            input("Need %s more!" % (payment - h.money))
+    clear()
+
+
+def menu():
+    clear()
+    print("-"*35)
+    print(Fore.GREEN + "Choose an action" + Fore.RESET)
+    print("1. STATE")
+    print("2. REST")
+    print("3. DOCTOR")
+    print("4. ADVENTURE")
+    print("0. EXIT")
+    print("-"*35)
 
 
 monster = [
