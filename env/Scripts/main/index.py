@@ -1,5 +1,5 @@
 from fighting import *
-
+from npc import *
 
 clear()
 
@@ -11,9 +11,9 @@ while True:
     print("-"*35)
     n = input()
     while type(n) != int:
-        try:
-            n = int(n)
-        except:
+        if n.isnumeric():
+            n = int(n) - 1
+        else:
             print(Fore.RED + "Enter number!" + Fore.RESET)
             n = input()
             clear()
@@ -23,7 +23,7 @@ while True:
         print(hero[n])
         print("="*30)
         confirm = input("\nAre you sure?\n")
-        if confirm.lower() in ["yes", "yep", "y", ""]:
+        if confirm.lower() in ("yes", "yep", "y", ""):
             hero = hero[n]
             clear()
             break
@@ -34,17 +34,18 @@ while True:
         clear()
 
 # Story
+input("Once upon a time, there was a brave and handsome "
+      + Fore.GREEN + f"{hero.name}\n" + Fore.RESET)
 
 while True:
     menu()
-
     n = input()
     while type(n) != int:
-        try:
+        if n.isnumeric():
             n = int(n)
-        except:
+        else:
             menu()
-            print(Fore.RED + "\nEnter number!" + Fore.RESET)
+            print(Fore.RED + "Enter number!" + Fore.RESET)
             n = input()
             clear()
     if n in range(5):
@@ -64,11 +65,11 @@ while True:
             input()
         if n == 3:
             clear()
-            doctor(hero, 10, 10)
+            doctor(hero)
             pass
         if n == 4:
             clear()
-            fight(hero, choice(monster))
+            fight(hero, deepcopy(choice(monster)))
             if hero.hp == 0:
                 input()
                 clear()
