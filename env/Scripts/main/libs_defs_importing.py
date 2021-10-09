@@ -12,11 +12,9 @@ def clear():
 
 def menu():
     clear()
-    print("-"*35)
     print(green("Choose an action"))
     print("1. STATE")
     print("2. REST")
     print("3. DOCTOR")
     print("4. ADVENTURE")
     print("0. EXIT")
-    print("-"*35)
