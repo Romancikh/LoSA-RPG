@@ -3,7 +3,7 @@ from libs_defs_importing import *
 
 def doctor(h):
     if h.hp == h.hp_max:
-        input(Fore.GREEN + "HP is Full!" + Fore.RESET)
+        input(green("HP is Full!"))
     else:
         recoverable_value = h.hp_max // 2
         payment = recoverable_value // 5
@@ -15,10 +15,9 @@ def doctor(h):
                 if h.hp > h.hp_max:
                     h.hp = h.hp_max
                 h.money -= payment
-                input(Fore.GREEN + "%s HP restored" %
-                      (recoverable_value) + Fore.RESET)
+                input(green("%s HP restored" % (recoverable_value)))
         else:
-            print(Fore.RED + "Not enough money!" + Fore.RESET)
+            print(red("Not enough money!"))
             input("Need %s more!" % (payment - h.money))
     clear()
 

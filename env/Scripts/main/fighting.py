@@ -17,8 +17,8 @@ def fight(h, m):
                 if character[1-i].hp < 0:
                     character[1-i].hp = 0
                 if is_crit:
-                    print("%s got " % (repr(character[1-i])) + Fore.YELLOW
-                          + "CRIT " + Fore.RESET + "damage %s" % (dmg))
+                    print("%s got " % (repr(character[1-i])) +
+                          yellow("CRIT ") + "damage %s" % (dmg))
                 else:
                     print("%s got damage %s" %
                           (repr(character[1-i]), dmg))
@@ -29,6 +29,6 @@ def fight(h, m):
     if h.hp > 0:
         print("Win!")
         h.money += m.money
-        print(Fore.BLUE + "Got money: %s" % (m.money) + Fore.RESET)
+        print(blue("Got money: %s" % (m.money)))
     else:
-        print(Fore.RED + "Game Over!" + Fore.RESET)
+        print(red("Game Over!"))

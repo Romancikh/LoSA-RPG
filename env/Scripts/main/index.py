@@ -5,7 +5,7 @@ clear()
 
 while True:
     print("-"*35)
-    print(Fore.GREEN + "Choose a hero" + Fore.RESET)
+    print(green("Choose a hero"))
     for i in range(len(hero)):
         print("%s. %s" % (i+1, hero[i].name))
     print("-"*35)
@@ -14,7 +14,7 @@ while True:
         if n.isnumeric():
             n = int(n) - 1
         else:
-            print(Fore.RED + "Enter number!" + Fore.RESET)
+            print(red("Enter number!"))
             n = input()
             clear()
     clear()
@@ -29,13 +29,13 @@ while True:
             break
         clear()
     else:
-        print(Fore.RED + "Wrong number!" + Fore.RESET)
+        print(red("Wrong number!"))
         input()
         clear()
 
 # Story
 input("Once upon a time, there was a brave and handsome "
-      + Fore.GREEN + f"{hero.name}\n" + Fore.RESET)
+      + green(f"{hero.name}\n"))
 
 while True:
     menu()
@@ -45,7 +45,7 @@ while True:
             n = int(n)
         else:
             menu()
-            print(Fore.RED + "Enter number!" + Fore.RESET)
+            print(red("Enter number!"))
             n = input()
             clear()
     if n in range(5):
@@ -61,7 +61,7 @@ while True:
         if n == 2:
             clear()
             rest(hero)
-            print(Fore.GREEN + "Full HP!" + Fore.RESET)
+            print(green("Full HP!"))
             input()
         if n == 3:
             clear()

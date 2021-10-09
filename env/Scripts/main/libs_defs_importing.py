@@ -1,10 +1,9 @@
-from colorama import Fore, Back, Style, init
 from os import system
 from time import sleep
 from random import choice, randint
 from copy import deepcopy
 from entities import *
-init()
+from colorful_text import *
 
 
 def clear():
@@ -14,7 +13,7 @@ def clear():
 def menu():
     clear()
     print("-"*35)
-    print(Fore.GREEN + "Choose an action" + Fore.RESET)
+    print(green("Choose an action"))
     print("1. STATE")
     print("2. REST")
     print("3. DOCTOR")
