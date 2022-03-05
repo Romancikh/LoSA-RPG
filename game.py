@@ -19,10 +19,13 @@ class Game:
         self.saves_list = SavesRepository()
 
     def read_saves(self) -> None:
-        from os import listdir
-        saves_dir_names = listdir("saves/")
-        for i in saves_dir_names:
-            self.saves_list.read_save(i)
+        from os import listdir, mkdir
+        if "saves/" in listdir():
+            saves_dir_names = listdir("saves/")
+            for i in saves_dir_names:
+                self.saves_list.read_save(i)
+        else:
+            mkdir("saves")
 
     @print_outline()
     def print_character_list(self) -> None:
