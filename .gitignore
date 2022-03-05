@@ -127,4 +127,4 @@ cython_debug/
 .idea/
 
 # Game saves
-data/saves/
+saves/
