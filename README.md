@@ -29,5 +29,5 @@ pip install -r requirements.txt
 
 Run game:
 ```cmd
-python main.py
+python index.py
 ```
